@@ -1,0 +1,59 @@
+//to sort numbers:
+numbers = [8, 3, 7, 10];
+numbers.sort();     //but it doesn't sort 10 correctly [10, 3, 7, 8]
+numbers.sort((a,b) =>{      //sort [3, 7, 8, 10]
+    return (a-b);
+})
+
+//to sort charactre
+const data = ['t', 'B', 'o', 'a', 'e', 'A', 'b'];
+data.sort();    //sort [A, B, a, b, e, o, t]
+data.sort((a,b) => {        
+    return a.localeCompare(b);   //this is only for strings
+});                             //sort [a, A, b, B, e, o, t]
+
+
+// to sort objects
+const student = [
+    {name:'Harry', age:18, subject:'Maths'},
+    {name:'Tom', age:20, subject:'English'},
+    {name:'Ronny', age:17, subject:'Physics'},
+];
+
+//to sort
+function getSortValue (value) {
+    return value.age;
+};
+student.sort((a,b) => {
+    const A = getSortValue(a);
+    const B = getSortValue(b);
+
+    if (typeof A === 'string') {
+        return A.localeCompare(B);
+    } else {
+        return A - B;
+    } 
+//to sort decending order
+    if (typeof A === 'string') {
+        return A.localeCompare(B) * -1;
+    } else {
+        return (A - B) * -1;
+    } 
+});
+
+
+//put when u want decending order
+const sortOrder = 'asc';
+
+student.sort((a,b) => {
+    const A = getSortValue(a);
+    const B = getSortValue(b);
+
+    const reverseOrder = sortOrder === 'asc' ? 1 : -1
+
+    if (typeof A === 'string') {
+        return A.localeCompare(B) * reverseOrder;
+    } else {
+        return (A - B) * reverseOrder;
+    }
+    });

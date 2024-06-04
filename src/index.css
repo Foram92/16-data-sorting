@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* svg means icons; buttons which contains icons have mr: 5px */
+button > svg {
+    margin-right: 5px;
+}
